@@ -11,7 +11,7 @@
 ```
  @property(nullable, strong) id <CAAnimationDelegate> delegate;
  ```
- 这样引起当前的对象无法得到释放，造成内存泄漏问题。
+ 这样引起当前的对象无法得到释放，造成内存泄漏问题。</br>
  所以在取消定时器的时候需要把动画代理置为nil,即
  ```
  //防止循环引用
