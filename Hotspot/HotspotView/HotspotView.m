@@ -113,7 +113,7 @@ static CGFloat splitLine = 80.0;
 -(void)setModelArray:(NSArray *)modelArray{
     _modelArray = modelArray;
     
-    [self customTransformationAnimation];
+    [self customTransformationAnimationWithTimerName:@"timer"];
 }
 
 -(void)layoutSubviews{
@@ -132,8 +132,7 @@ static CGFloat splitLine = 80.0;
 -(void)dealloc{
     //移除动画
     [self.contentView.layer removeAllAnimations];
-    //取消定时器
-    NSLog(@"取消定时器成功");
+    NSLog(@"释放了视图对象");
     
 }
 
@@ -196,17 +195,21 @@ static CGFloat splitLine = 80.0;
     }
 }
 
--(void)customTransformationAnimation{
+-(void)customTransformationAnimationWithTimerName:(NSString*)timerName{
+    if (timerName == nil) {
+        return;
+    }
+    
     __weak typeof(self) weakself = self;
    __block NSUInteger  interval = 0;
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     if (!self.timerContainer) {
         self.timerContainer = [NSMutableDictionary dictionary];
     }
-    dispatch_source_t timer = [self.timerContainer objectForKey:@"timer"];
+    dispatch_source_t timer = [self.timerContainer objectForKey:timerName];
     if (!timer) {
         timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
-        [self.timerContainer setValue:timer forKey:@"timer"];
+        [self.timerContainer setValue:timer forKey:timerName];
     }
     
     dispatch_source_set_timer(timer, dispatch_walltime(NULL, 0), 5.0*NSEC_PER_SEC, 0);
