@@ -41,6 +41,7 @@
 }
 
 -(void)dealloc{
+    [self.hotspotView cancelAllTimer];
     //取消定时器
     NSLog(@"dealoc");
     

@@ -21,5 +21,7 @@
 
 -(void)titleImage:(UIImage*)titleImage hotspot:(NSArray*)hotArray completion:(void (^)(HotspotModel *model))completion;
 
+-(void)cancelAllTimer;
+
 @end
 

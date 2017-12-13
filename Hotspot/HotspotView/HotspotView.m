@@ -133,8 +133,7 @@ static CGFloat splitLine = 80.0;
     //移除动画
     [self.contentView.layer removeAllAnimations];
     //取消定时器
-    NSLog(@"取消定时器");
-    [self cancelAllTimer];
+    NSLog(@"取消定时器成功");
     
 }
 
@@ -184,6 +183,9 @@ static CGFloat splitLine = 80.0;
     
     dispatch_source_cancel(timer);
     timer = nil;
+    
+    //防止循环引用
+    _flipTransition.delegate = nil;
 }
 
 -(void)cancelAllTimer{
@@ -261,8 +263,7 @@ static CGFloat splitLine = 80.0;
 }
 
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag{
-    //防止循环引用
-    _flipTransition.delegate = nil;
+    
 }
 
 #pragma mark -- getter
