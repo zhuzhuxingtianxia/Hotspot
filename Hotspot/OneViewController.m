@@ -27,7 +27,7 @@
     self.hotspotView = [[HotspotView alloc] init];
     [self.view addSubview:self.hotspotView];
     
-    self.hotspotView.frame = CGRectMake(0, 140, self.view.bounds.size.width, 68);
+    self.hotspotView.frame = CGRectMake(0, 240, self.view.bounds.size.width, 68);
     NSArray *hotArray = @[@{@"message":@"今年的年终奖要到年后才能发,真是痛心不已！你们觉得呢",@"createdate":@"01-19"},@{@"message":@"员工都表示出了非常的不满",@"createdate":@"01-20"},@{@"message":@"大家表示都不能愉快的过春节了",@"createdate":@"01-20"},@{@"message":@"挖个坑埋点土数个一二三四五",@"createdate":@"01-21"}];
     UIImage *img = [UIImage imageNamed:@"btn_fwbb"];
    
