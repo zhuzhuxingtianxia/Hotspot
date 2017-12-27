@@ -149,13 +149,27 @@ inline static  CGSize f_ScreenSize(){
 -(void)setMessage:(NSString *)message{
     _message = message;
     if (_message) {
-        NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:self.messageLabel.font,NSFontAttributeName, nil];
+        
+        NSDictionary *dic = @{NSFontAttributeName:self.messageLabel.font};
         //计算总高度
         CGSize  actualsize = CGSizeZero;
         actualsize =[_message  boundingRectWithSize:CGSizeMake(grect.size.width-20, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin  attributes:dic context:nil].size;
+        //计算单个字的高度
+        CGSize size = [_message sizeWithAttributes:dic];
+        CGFloat wordHeight = size.height;
+        if (actualsize.height/wordHeight >= 2) {
+            NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+            paragraphStyle.lineSpacing = 8.0;
+            paragraphStyle.lineBreakMode = NSLineBreakByTruncatingTail;
+            paragraphStyle.alignment = NSTextAlignmentCenter;
+            NSMutableAttributedString *att = [[NSMutableAttributedString alloc] initWithString:_message attributes:@{NSFontAttributeName:self.messageLabel.font,               NSParagraphStyleAttributeName:paragraphStyle}];
+            self.messageLabel.attributedText = att;
+            
+        }else{
+            self.messageLabel.text = _message;
+        }
         
-        self.messageLabel.text = _message;
-        self.messageLabel.frame = CGRectMake(10, 20, grect.size.width-20, actualsize.height);
+        self.messageLabel.frame = CGRectMake(10, 20, grect.size.width-20, actualsize.height + (actualsize.height/wordHeight + 1) * 8.0);
         [self addSubview:self.messageLabel];
     }
 }
@@ -192,7 +206,7 @@ inline static  CGSize f_ScreenSize(){
         _messageLabel.numberOfLines = 0;
         _messageLabel.textAlignment = NSTextAlignmentCenter;
         _messageLabel.textColor = [UIColor blackColor];
-        _messageLabel.font = [UIFont systemFontOfSize:15];
+        _messageLabel.font = [UIFont systemFontOfSize:16];
     }
     return _messageLabel;
 }
