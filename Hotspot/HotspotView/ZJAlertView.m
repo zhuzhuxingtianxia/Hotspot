@@ -226,7 +226,7 @@ inline static  CGSize f_ScreenSize(){
 {
     self.alpha = 0;
     self.transform = CGAffineTransformMakeScale(1.1, 1.1);
-    [UIView animateWithDuration:0.35 animations:^{
+    [UIView animateWithDuration:0.35 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         self.transform = CGAffineTransformMakeScale(1.0, 1.0);
         self.alpha = 1.0;
     } completion:^(BOOL finished) {
@@ -243,7 +243,7 @@ inline static  CGSize f_ScreenSize(){
 }
 - (void)animatedOut{
     
-    [UIView animateWithDuration:.35 animations:^{
+    [UIView animateWithDuration:.2 animations:^{
         self.alpha = 0.0;
         _controlForDismiss.alpha = 0;
     } completion:^(BOOL finished) {
