@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B6B44C2620A31E340050792A /* TCMOutOfStockView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6B44C2420A31E340050792A /* TCMOutOfStockView.m */; };
+		B6B44C2720A31E340050792A /* TCMOutOfStockView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6B44C2520A31E340050792A /* TCMOutOfStockView.xib */; };
 		B6D4F0061FE0FF7B00314345 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B6D4F0051FE0FF7B00314345 /* AppDelegate.m */; };
 		B6D4F0091FE0FF7B00314345 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6D4F0081FE0FF7B00314345 /* ViewController.m */; };
 		B6D4F00C1FE0FF7B00314345 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6D4F00A1FE0FF7B00314345 /* Main.storyboard */; };
@@ -41,6 +43,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B6B44C2320A31E340050792A /* TCMOutOfStockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCMOutOfStockView.h; sourceTree = "<group>"; };
+		B6B44C2420A31E340050792A /* TCMOutOfStockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCMOutOfStockView.m; sourceTree = "<group>"; };
+		B6B44C2520A31E340050792A /* TCMOutOfStockView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCMOutOfStockView.xib; sourceTree = "<group>"; };
 		B6D4F0011FE0FF7A00314345 /* Hotspot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hotspot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6D4F0041FE0FF7A00314345 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B6D4F0051FE0FF7B00314345 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -122,6 +127,9 @@
 				B6D4F0081FE0FF7B00314345 /* ViewController.m */,
 				B6D4F0431FE12F5B00314345 /* OneViewController.h */,
 				B6D4F0441FE12F5B00314345 /* OneViewController.m */,
+				B6B44C2320A31E340050792A /* TCMOutOfStockView.h */,
+				B6B44C2420A31E340050792A /* TCMOutOfStockView.m */,
+				B6B44C2520A31E340050792A /* TCMOutOfStockView.xib */,
 				B6D4F00A1FE0FF7B00314345 /* Main.storyboard */,
 				B6D4F0361FE1013D00314345 /* HotspotView */,
 				B6D4F00D1FE0FF7B00314345 /* Assets.xcassets */,
@@ -274,6 +282,7 @@
 				B6D4F03E1FE1013D00314345 /* btn_fwbb@3x.png in Resources */,
 				B6D4F00E1FE0FF7B00314345 /* Assets.xcassets in Resources */,
 				B6D4F00C1FE0FF7B00314345 /* Main.storyboard in Resources */,
+				B6B44C2720A31E340050792A /* TCMOutOfStockView.xib in Resources */,
 				B6D4F03C1FE1013D00314345 /* btn_fwbb.png in Resources */,
 				B6D4F03D1FE1013D00314345 /* btn_fwbb@2x.png in Resources */,
 			);
@@ -302,6 +311,7 @@
 			files = (
 				B6D4F03F1FE1013D00314345 /* HotspotView.m in Sources */,
 				B6D4F0091FE0FF7B00314345 /* ViewController.m in Sources */,
+				B6B44C2620A31E340050792A /* TCMOutOfStockView.m in Sources */,
 				B6D4F0421FE107DB00314345 /* ZJAlertView.m in Sources */,
 				B6D4F0451FE12F5B00314345 /* OneViewController.m in Sources */,
 				B6D4F0141FE0FF7B00314345 /* main.m in Sources */,
