@@ -217,7 +217,7 @@ inline static  CGSize f_ScreenSize(){
     if (nil == _controlForDismiss && blur)
     {
         _controlForDismiss = [[UIControl alloc]initWithFrame:[UIScreen mainScreen].bounds];
-        _controlForDismiss.backgroundColor = [UIColor colorWithRed:.16 green:.17 blue:.21 alpha:.5];
+        _controlForDismiss.backgroundColor = [UIColor colorWithWhite:0 alpha:0.5];
         
         [_controlForDismiss addTarget:self action:@selector(touchForDismissSelf:) forControlEvents:UIControlEventTouchUpInside];
         
@@ -236,8 +236,25 @@ inline static  CGSize f_ScreenSize(){
     
 }
 #pragma mark - Animated Mthod
-- (void)animatedIn
-{
+- (void)animatedIn{
+    //alpha
+    CABasicAnimation *alphaAnimation = [CABasicAnimation animationWithKeyPath:@"alpha"];
+    alphaAnimation.fromValue = @(0.0);
+    alphaAnimation.toValue = @(1.0);
+    
+    //scale
+    CABasicAnimation *scaleAnimation = [CABasicAnimation animationWithKeyPath:@"transform"];
+    scaleAnimation.fromValue = [NSValue valueWithCATransform3D:CATransform3DMakeScale(1.1,1.1,1.1)];
+    scaleAnimation.toValue = [NSValue valueWithCATransform3D:CATransform3DMakeScale(1.0,1.0,1.0)];
+    
+    //alpha+scale = group
+    CAAnimationGroup *group = [CAAnimationGroup animation];
+    group.animations = @[alphaAnimation,scaleAnimation];
+    group.duration = 0.3;
+    group.timingFunction = [CAMediaTimingFunction functionWithName: kCAMediaTimingFunctionEaseIn];
+    
+    [self.layer addAnimation:group forKey:@"AnimationGroup"];
+    /*
     self.alpha = 0;
     self.transform = CGAffineTransformMakeScale(1.1, 1.1);
     [UIView animateWithDuration:0.35 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
@@ -246,7 +263,7 @@ inline static  CGSize f_ScreenSize(){
     } completion:^(BOOL finished) {
         
     }];
-    
+   */
 }
 - (void)touchForDismissSelf:(id)sender
 {
